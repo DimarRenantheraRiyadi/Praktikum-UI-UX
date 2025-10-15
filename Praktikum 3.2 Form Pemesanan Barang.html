@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan Barang</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .form-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 20px;
+        }
+
+        .image-section {
+            border: 2px solid #ddd;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f9f9f9;
+            position: relative;
+        }
+
+        .image-placeholder {
+            font-size: 60px;
+            color: #ccc;
+        }
+
+        .upload-btn {
+            position: absolute;
+            bottom: 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 5px;
+        }
+
+        .radio-group label,
+        .checkbox-group label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .submit-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 40px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Form Pemesanan Barang</h2>
+        
+        <form id="orderForm" onsubmit="handleSubmit(event)">
+            <div class="form-layout">
+                <div class="image-section">
+                    <div class="image-placeholder">📷</div>
+                    <button type="button" class="upload-btn">Upload Image</button>
+                </div>
+
+                <div class="form-section">
+                    <div class="form-group">
+                        <label for="title">Title/Name</label>
+                        <select id="title" name="title" required>
+                            <option value="">Silahkan dipesan!</option>
+                            <option value="Laptop">Laptop Apple</option>
+                            <option value="Phone">Phone Iphone 17</option>
+                            <option value="Tablet">Tablet advan 3s</option>
+                            <option value="Computer">Computer HP 1430</option>
+                            <option value="Monitor">Monitor 234</option>
+                            <option value="Camera">Camera digital</option>
+                            <option value="Keyboard & Mouse">Keyboard & Mouse</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" required>Year: 2023
+Model: Jk-4085980-Dimar
+Condition: New</textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="hargaSatuan">Harga Satuan</label>
+                            <input type="number" id="hargaSatuan" name="hargaSatuan" value="50000" min="0" required oninput="calculateTotal()">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="jumlahBarang">Jumlah Barang</label>
+                            <input type="number" id="jumlahBarang" name="jumlahBarang" value="1" min="1" required oninput="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="totalBarang">Total Amount</label>
+                        <input type="number" id="totalBarang" name="totalBarang" value="50000" readonly style="background-color: #e9ecef; font-weight: bold;">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="accountNo">Account Number</label>
+                            <input type="text" id="accountNo" name="accountNo" value="012-345-789-0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bankName">Bank Name</label>
+                            <select id="bankName" name="bankName" required>
+                                <option value="BCA">BCA (Bank Central Asia)</option>
+                                <option value="Mandiri">Bank Mandiri</option>
+                                <option value="BRI">BRI (Bank Rakyat Indonesia)</option>
+                                <option value="BNI">BNI (Bank Negara Indonesia)</option>
+                                <option value="CIMB Niaga">CIMB Niaga</option>
+                                <option value="Permata Bank">Permata Bank</option>
+                                <option value="Danamon">Bank Danamon</option>
+                                <option value="BTN">BTN (Bank Tabungan Negara)</option>
+                                <option value="Mega">Bank Mega</option>
+                                <option value="BII">BII (Bank International Indonesia)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section" style="margin-top: 20px;">
+                <div class="form-group">
+                    <label>Transportation</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="transportasi" value="JNE" checked> JNE
+                        </label>
+                        <label>
+                            <input type="radio" name="transportasi" value="TIKI"> TIKI
+                        </label>
+                        <label>
+                            <input type="radio" name="transportasi" value="POS Indonesia"> POS Indonesia
+                        </label>
+                    </div>
+                    <p class="note">*If the transaction is for 3 or more people, please fill fee from owner itself</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Delivery Options</label>
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" name="deliveryOption" value="Bisa Ditinggal"> Bisa Ditinggal
+                        </label>
+                        <label>
+                            <input type="checkbox" name="deliveryOption" value="Harus ada orang"> Harus ada orang di rumah saat pengiriman
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="mobilePhone">Send to Mobile Phone</label>
+                        <input type="text" id="mobilePhone" name="mobilePhone" value="0857-2555-6665" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Send to Email</label>
+                        <input type="text" id="email" name="email" value="pembuatnyabernamadimar09@gmail.com" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="submit-section">
+                <button type="submit" class="submit-btn">Bayarkan Melalui »</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function calculateTotal() {
+            const hargaSatuan = parseFloat(document.getElementById('hargaSatuan').value) || 0;
+            const jumlahBarang = parseInt(document.getElementById('jumlahBarang').value) || 0;
+            const total = hargaSatuan * jumlahBarang;
+            document.getElementById('totalBarang').value = total;
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const formData = {
+                title: document.getElementById('title').value,
+                description: document.getElementById('description').value,
+                hargaSatuan: document.getElementById('hargaSatuan').value,
+                jumlahBarang: document.getElementById('jumlahBarang').value,
+                totalBarang: document.getElementById('totalBarang').value,
+                accountNo: document.getElementById('accountNo').value,
+                bankName: document.getElementById('bankName').value,
+                transportasi: document.querySelector('input[name="transportasi"]:checked').value,
+                mobilePhone: document.getElementById('mobilePhone').value,
+                email: document.getElementById('email').value
+            };
+            
+            const deliveryOptions = [];
+            document.querySelectorAll('input[name="deliveryOption"]:checked').forEach(checkbox => {
+                deliveryOptions.push(checkbox.value);
+            });
+            formData.deliveryOptions = deliveryOptions;
+            
+            // Simpan data ke sessionStorage
+            sessionStorage.setItem('orderData', JSON.stringify(formData));
+            
+            // Redirect ke halaman hasil
+            // PENTING: Ganti 'hasil_pemesanan.html' dengan nama file hasil kamu yang sebenarnya
+            alert('Form berhasil disubmit! Akan redirect ke halaman hasil...');
+            console.log('Data yang akan dikirim:', formData);
+            
+            // Redirect setelah 1 detik
+            setTimeout(function() {
+                window.location.href = 'Praktikum 3.2 Hasil Pemesanan Barang.html';
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
