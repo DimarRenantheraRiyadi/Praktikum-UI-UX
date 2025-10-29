@@ -1,0 +1,163 @@
+body {
+  background-color: pink;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  background-color: yellow;
+  color: black;
+  text-align: center;
+  padding: 20px;
+}
+
+h3 {
+  color: red;
+}
+
+h4 {
+  color: darkblue;
+}
+
+p {
+  text-align: justify;
+}
+
+/* bagian header */
+#header blockquote {
+  font-size: 18px;
+  margin: 20px;
+}
+
+#soekarno {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+
+/* bagian menu link */
+.link {
+  background-color: red;
+  text-align: center;
+  padding: 10px;
+}
+
+.link ul {
+  list-style: none;
+}
+
+.link li {
+  display: inline;
+  margin: 0 20px;
+}
+
+.link a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* bagian gambar */
+.gambar {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.gambar img {
+  width: 40%;
+  margin: 10px;
+}
+
+/* bagian isi konten */
+.isi {
+  margin: 20px;
+}
+
+.jawa {
+  font-weight: bold;
+  color: blue;
+}
+
+/* bagian profil */
+#profil {
+  margin: 30px;
+  background-color: lightyellow;
+  padding: 20px;
+}
+
+#profil ul {
+  line-height: 25px;
+}
+
+/* bagian berternak */
+#beternak {
+  margin: 30px;
+  background-color: lightyellow;
+  padding: 20px;
+}
+
+#beternak ol {
+  line-height: 25px;
+}
+
+#beternak h4 {
+  margin-top: 20px;
+}
+
+/* bagian koleksi gambar */
+.koleksi {
+  text-align: center;
+  margin: 30px;
+}
+
+.koleksi img {
+  width: 22%;
+  margin: 5px;
+}
+
+/* bagian promo */
+.promo {
+  background-color: lightyellow;
+  text-align: center;
+  padding: 30px;
+  margin: 30px;
+  border: 3px dotted red;
+}
+
+.promo h2 {
+  color: black;
+}
+
+.promo h3 {
+  color: black;
+}
+
+.promo strong {
+  color: red;
+  font-size: 20px;
+}
+
+.promo del {
+  color: gray;
+}
+
+#Wa {
+  color: black;
+
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.promo ol {
+  list-style: none;
+}
+
+.promo li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.promo a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
