@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank you for your order</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5dc;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: #f5f5dc;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 2.5em;
+        margin: 40px 0;
+        padding-bottom: 20px;
+        border-bottom: 3px solid #5f9ea0;
+        color: #333;
+      }
+
+      .content {
+        padding: 0 20px;
+      }
+
+      .intro {
+        margin-bottom: 30px;
+        font-size: 1em;
+        line-height: 1.6;
+      }
+
+      .section-title {
+        color: #d2691e;
+        font-size: 1.1em;
+        font-weight: bold;
+        margin: 20px 0 15px 0;
+      }
+
+      .info-block {
+        margin-left: 40px;
+        margin-bottom: 20px;
+      }
+
+      .info-item {
+        margin: 8px 0;
+        line-height: 1.6;
+      }
+
+      .info-label {
+        font-weight: bold;
+        display: inline;
+      }
+
+      .info-value {
+        font-style: italic;
+        display: inline;
+      }
+
+      .divider {
+        border: none;
+        border-top: 1px solid #ccc;
+        margin: 30px 0;
+      }
+
+      .footer-note {
+        margin-top: 30px;
+        font-size: 0.95em;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>THANK YOU</h1>
+
+      <div class="content">
+        <p class="intro">Thank you for ordering from Black Goose Bistro. We have received the following information about your order:</p>
+
+        <div class="section-title">Your information</div>
+        <div class="info-block">
+          <div class="info-item">
+            <span class="info-label">Name:</span>
+            <span class="info-value" id="customername">empty</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Address:</span>
+            <span class="info-value" id="address">empty</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Telephone number:</span>
+            <span class="info-value" id="telephone">empty</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Email Address:</span>
+            <span class="info-value" id="email">empty</span>
+          </div>
+        </div>
+
+        <div class="info-item" style="margin-left: 0">
+          <span class="info-label">Delivery instructions:</span>
+          <span class="info-value" id="instructions">empty</span>
+        </div>
+
+        <div class="section-title">Your pizza</div>
+        <div class="info-block">
+          <div class="info-item">
+            <span class="info-label">Crust:</span>
+            <span class="info-value" id="crust">empty</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Toppings:</span>
+            <span class="info-value" id="toppings">empty</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Number:</span>
+            <span class="info-value" id="number">empty</span>
+          </div>
+        </div>
+
+        <hr class="divider" />
+
+        <p class="footer-note">This site is for educational purposes only. No pizzas will show up at your door.</p>
+      </div>
+    </div>
+
+    <script>
+      function getURLParameter(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name) || "empty";
+      }
+
+      window.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("customername").textContent = getURLParameter("customername");
+        document.getElementById("address").textContent = getURLParameter("address");
+        document.getElementById("telephone").textContent = getURLParameter("telephone");
+        document.getElementById("email").textContent = getURLParameter("email");
+        document.getElementById("instructions").textContent = getURLParameter("instructions");
+        document.getElementById("crust").textContent = getURLParameter("crust");
+        document.getElementById("toppings").textContent = getURLParameter("toppings");
+        document.getElementById("number").textContent = getURLParameter("number");
+      });
+    </script>
+  </body>
+</html>
