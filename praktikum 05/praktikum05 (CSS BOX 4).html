@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box dan Positioning - Tugas 7.4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            width: 600px;
+            margin: 0 auto;
+            border: 2px solid #333;
+            padding: 10px;
+        }
+
+        .header {
+            position: relative;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        .header-left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 150px;
+            height: 60px;
+            background-color: #FFFF00;
+            border: 1px solid #333;
+        }
+
+        .header-right {
+            position: absolute;
+            left: 160px;
+            top: 0;
+            width: 410px;
+            height: 60px;
+            background-color: #FF6347;
+            border: 1px solid #333;
+        }
+
+        .content-wrapper {
+            position: relative;
+            height: 350px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar-left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 150px;
+            height: 350px;
+            background-color: #90EE90;
+            border: 1px solid #333;
+        }
+
+        .main-content {
+            position: absolute;
+            left: 160px;
+            top: 0;
+            width: 350px;
+            height: 350px;
+            background-color: #D3D3D3;
+            border: 1px solid #333;
+        }
+
+        .sidebar-right {
+            position: absolute;
+            left: 520px;
+            top: 0;
+            width: 50px;
+            height: 350px;
+            background-color: #00BFFF;
+            border: 1px solid #333;
+        }
+
+        .footer {
+            background-color: #0000FF;
+            height: 40px;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-left"></div>
+            <div class="header-right"></div>
+        </div>
+        <div class="content-wrapper">
+            <div class="sidebar-left"></div>
+            <div class="main-content"></div>
+            <div class="sidebar-right"></div>
+        </div>
+        <div class="footer"></div>
+    </div>
+</body>
+</html>
