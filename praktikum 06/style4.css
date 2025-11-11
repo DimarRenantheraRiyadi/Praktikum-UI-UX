@@ -1,0 +1,107 @@
+/* Style Umum */
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  background: #f7f7f7;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+section.layout {
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background: #ffffff;
+  margin-bottom: 50px;
+  padding: 10px;
+}
+
+header, footer {
+  background-color: #f9e79f;
+  padding: 10px;
+  font-weight: bold;
+}
+
+/* ========== Layout (a) ========== */
+.layout-a main {
+  display: flex;
+  margin: 10px 0;
+}
+
+.layout-a nav {
+  background-color: #f8a5c2;
+  flex: 1;
+  padding: 10px;
+}
+
+.layout-a article {
+  background-color: #fff;
+  flex: 2;
+  padding: 10px;
+}
+
+.layout-a aside {
+  background-color: #74b9ff;
+  flex: 1;
+  padding: 10px;
+}
+
+.layout-a footer {
+  background-color: #ffeaa7;
+  padding: 10px;
+}
+
+/* ========== Layout (b) ========== */
+.layout-b header {
+  background-color: #81ecec;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.layout-b main {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 10px 0;
+}
+
+.layout-b aside {
+  background-color: #55efc4;
+  flex: 1;
+  padding: 10px;
+}
+
+.layout-b article {
+  background-color: #fab1a0;
+  flex: 2;
+  padding: 10px;
+}
+
+.layout-b .images {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.layout-b .images img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.layout-b footer {
+  background-color: #ffeaa7;
+  padding: 10px;
+}
+
+/* Efek hover kecil */
+img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s;
+}
+

@@ -1,0 +1,63 @@
+/* Style umum */
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+.container {
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 10px;
+}
+
+/* Bagian utama layout */
+header {
+  background-color: #f2cb05;
+  padding: 15px;
+  font-weight: bold;
+}
+
+main {
+  display: flex;
+  margin: 10px 0;
+}
+
+article {
+  background-color: #ffffff;
+  flex: 2;
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+
+aside {
+  background-color: #ffc6c6;
+  flex: 1;
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+
+nav {
+  background-color: #63e6be;
+  flex: 1;
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+
+footer {
+  background-color: #f2cb05;
+  padding: 15px;
+  font-weight: bold;
+}
+
+/* Tambahan biar tampilan rapi */
+.container * {
+  border-radius: 6px;
+  box-sizing: border-box;
+}
