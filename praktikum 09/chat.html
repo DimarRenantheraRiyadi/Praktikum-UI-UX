@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Message</title>
+
+    <style>
+        /* posisi chatbox di kanan bawah */
+        #chatBox {
+            width: 250px;
+            height: 300px;
+            border: 1px solid #aaa;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #pesanArea {
+            flex: 1;
+            padding: 5px;
+            border-bottom: 1px solid #ccc;
+            overflow-y: auto;
+            font-size: 14px;
+        }
+
+        #inputArea {
+            display: flex;
+        }
+
+        #inputPesan {
+            flex: 1;
+            padding: 5px;
+            border: none;
+            outline: none;
+        }
+
+        #kirimBtn {
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="chatBox">
+        <div id="pesanArea"></div>
+
+        <div id="inputArea">
+            <input type="text" id="inputPesan" placeholder="ketik...">
+            <button id="kirimBtn" onclick="kirimPesan()">Kirim</button>
+        </div>
+    </div>
+
+<script>
+    function kirimPesan() {
+        let input = document.getElementById("inputPesan");
+        let area = document.getElementById("pesanArea");
+
+        if (input.value.trim() === "") return;
+
+        // tampilkan pesan di kotak chat
+        area.innerHTML += "Me: " + input.value + "<br>";
+
+        // scroll otomatis ke bawah
+        area.scrollTop = area.scrollHeight;
+
+        // kosongkan input
+        input.value = "";
+    }
+</script>
+
+</body>
+</html>
